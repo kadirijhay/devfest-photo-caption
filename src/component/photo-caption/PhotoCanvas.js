@@ -87,7 +87,7 @@ class PhotoCanvas extends React.Component {
             context.clearRect(375, 0, canvas.width, canvas.height)
             context.drawImage(canvasImg, 0, 0, canvas.width, canvas.height)
             
-            if(userImg) {
+            if(this.state.userUpload) {
                 if(userImg.width === userImg.height) {
                     context.clearRect(62, 282, 370, 370)
                     context.drawImage(userImg, 62, 282, 370, 370)
@@ -117,7 +117,7 @@ class PhotoCanvas extends React.Component {
     }
     
     handleDownload = (event) => {
-        const dataURL = this.refs.canvas.toDataURL()
+        const dataURL = this.refs.canvas.toDataURL("image/jpeg")
     
         const tempLink = document.createElement("a")
         tempLink.download = "Devfest Ogbomoso.jpg"
